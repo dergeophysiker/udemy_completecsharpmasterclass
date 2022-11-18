@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ArgsApp": {
+      "commandName": "Project",
+      "commandLineArgs": "sub 5 7"
+    }
+  }
+}
