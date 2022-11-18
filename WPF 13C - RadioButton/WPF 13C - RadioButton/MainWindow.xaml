@@ -1,0 +1,44 @@
+﻿<Window x:Class="WPF_13C___RadioButton.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_13C___RadioButton"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <!-- <Grid>
+       <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="219,167,0,0" VerticalAlignment="Center"></RadioButton>  
+        
+    </Grid>  -->
+    <StackPanel Margin="10">
+        <Label>Question?
+            
+        </Label>
+        <RadioButton  Margin="10" Checked="RadioButton_Checked">
+            <WrapPanel>
+                <Rectangle Fill="green" Width="16" Height="16"></Rectangle>
+                <TextBlock Text="Yes" Foreground="Green" Margin="5,0,0,0"></TextBlock>
+            </WrapPanel>
+        </RadioButton>
+
+
+        <RadioButton Name="noRadio" Margin="10" Checked="RadioButton_Checked_1">
+            <WrapPanel>
+                <Rectangle Fill="red" Width="16" Height="16"></Rectangle>
+                <TextBlock Text="No" Foreground="red" Margin="5,0,0,0"></TextBlock>
+            </WrapPanel>
+        </RadioButton>
+
+
+        <RadioButton Margin="10">
+            <WrapPanel>
+                <Rectangle Fill="Yellow" Width="16" Height="16"></Rectangle>
+                <TextBlock Text="Maybe" Foreground="Black" Margin="5,0,0,0"></TextBlock>
+            </WrapPanel>
+        </RadioButton>
+
+
+
+    </StackPanel>
+    
+</Window>

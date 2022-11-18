@@ -1,0 +1,16 @@
+﻿<Window x:Class="WPF_04C_Events_in_XAML.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_04C_Events_in_XAML"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="direct click me" Click="Button_Click" Width="150"  VerticalAlignment="Top"  Height="100"></Button>
+        <Button Content="bubble click me" MouseUp="Button_MouseUp" VerticalAlignment="Bottom" Width="150"    Height="100"></Button>
+        <Button Content="tunnel click me" PreviewMouseUp="Button_PreviewMouseUp" VerticalAlignment="Center" Width="150"    Height="100"></Button>
+        <Button Content="mouse left righ" PreviewMouseRightButtonUp="Button_PreviewMouseRightButtonUp" PreviewMouseLeftButtonDown="Button_PreviewMouseLeftButtonDown" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"    Height="100"></Button>
+
+    </Grid>
+</Window>
