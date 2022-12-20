@@ -1,0 +1,1 @@
+I did discover that in Tools > Options > Environment > Fonts and Colors > Show Settings for: Text Editor. Set the Item background for "Inactive Selected Text". I chose Red. It sort of doesn't work unless you click into the XAML editor and then on the control to highlight it.
