@@ -60,21 +60,59 @@ namespace testSQLliteMEF
                      }
                  }
              }//close */
-            var connection = new SqliteConnection("Data Source=DemoDB.db;");
 
-            connection.Open();
+            /****************   skilpping all of this   */
+            /* var connection = new SqliteConnection("Data Source=DemoDB.db;");
 
-           var context = new ChinookContext();
+             connection.Open();
 
-           var artists = from a in context.Artists where a.ArtistId==2 select a;
-          var fetchedDAta = artists.ToList();
+            var context = new ChinookContext();
 
-          foreach (var artist in artists)
-          {
-              Console.WriteLine(artist.Name);
-          }
+            var artists = from a in context.Artists where a.ArtistId==1 select a;
+           var fetchedDAta = artists.ToList();
 
-            connection.Close();
+             var albums = from b in context.Albums where b.AlbumId == 1 select b;
+             var fetchedAlbum = albums.ToList();
+
+           foreach (var artist in artists)
+           {
+               Console.WriteLine(artist.Name);
+
+           }
+
+
+           foreach(var alb in albums)
+             {
+                 Console.WriteLine(alb.Title);
+             }
+
+
+             connection.Close();
+
+
+             */
+
+            /// put new code below here
+            /// 
+            Console.WriteLine("begin");
+
+            using (var context = new ChinookContext())
+            {
+                var artists = from a in context.Artists
+                              where a.Name.StartsWith("A")
+                              orderby a.Name
+                              select a;
+
+                foreach (var artist in artists)
+                {
+                    Console.WriteLine(artist.Name);
+                }
+            }
+
+            Console.WriteLine("end");
+
+
+
 
 
 
@@ -83,6 +121,45 @@ namespace testSQLliteMEF
         }//mmain
     }//program
 
+    //==========================================================begin
+    public class Artist
+    {
+        public Artist()
+        {
+            Albums = new List<Album>();
+        }
+
+        public long ArtistId { get; set; }
+        public string Name { get; set; }
+
+        public virtual ICollection<Album> Albums { get; set; }
+    }
+
+    public class Album
+    {
+        public long AlbumId { get; set; }
+        public string Title { get; set; }
+
+        public long ArtistId { get; set; }
+        public virtual Artist Artist { get; set; }
+    }
+
+    class ChinookContext : DbContext
+    {
+        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Album> Albums { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // Chinook Database does not pluralize table names
+            modelBuilder.Conventions
+                .Remove<PluralizingTableNameConvention>();
+        }
+    }
+
+    //==========================================================end
+
+    /* skipping all of this
 
     public class Artist
     {
@@ -118,6 +195,6 @@ namespace testSQLliteMEF
                 .Remove<PluralizingTableNameConvention>();
         }
     }//chinookContextg
-
+    */
 
 }
